@@ -5,7 +5,7 @@ export const getComics = async ({
   url = null
 }) => {
   if (url) {
-    const res = await fetch(`${url}?offset=${offset}ts=1&apikey=${API_KEY}&hash=${API_HASH}`)
+    const res = await fetch(`${url}?offset=${offset}&ts=1&apikey=${API_KEY}&hash=${API_HASH}`)
     const { data: { results } } = await res.json()
     return { results }
   }
