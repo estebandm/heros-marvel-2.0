@@ -21,15 +21,18 @@ const ContainerCard = ({ items, name }) => {
         </CardHeaderStyle>
       }
       <ContainerCardStyle>
-        {items.map(item => (
-          <Card
-            description={item.description}
-            img={`${item.thumbnail.path}/portrait_incredible.${item.thumbnail.extension}`}
-            key={item.id}
-            name={item[nameProp]}
-            wiki={item.urls[0].url}
-          />
-        ))}
+        {items.map(item => {
+          const imgPath = `${item.thumbnail.path}/portrait_incredible.${item.thumbnail.extension}`
+          return (
+            <Card
+              description={item.description}
+              img={imgPath.replace('http', 'https')}
+              key={item.id}
+              name={item[nameProp]}
+              wiki={item.urls[0].url}
+            />
+          )
+        })}
       </ContainerCardStyle>
     </>
   )
